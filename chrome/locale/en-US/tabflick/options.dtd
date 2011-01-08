@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Options">
+<!ENTITY tabflick.preview.scale "Preview scale">
+<!ENTITY tabflick.preview.interval.1 "Refresh preview every">
+<!ENTITY tabflick.preview.interval.2 "milliseconds">
+<!ENTITY tabflick.selectAfterMove "When I move a tab into another window, switch to it immediately">
+<!ENTITY tabflick.selectAfterMove.description "Pressing Shift key inverts the action.">

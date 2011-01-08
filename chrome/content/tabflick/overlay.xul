@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://tabflick/content/overlay.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://tabflick/locale/overlay.dtd">
+
+<overlay id="tabflickOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<script type="application/x-javascript" src="chrome://tabflick/content/tabflick.js" />
+	<script type="application/x-javascript"><![CDATA[
+		window.addEventListener("load",   function() { TabFlick.init(); },   false);
+		window.addEventListener("unload", function() { TabFlick.uninit(); }, false);
+	]]></script>
+
+	<popupset id="mainPopupSet">
+		<panel id="tabFlickPanel"
+		       class="KUI-panel"
+		       collapsed="true"
+		       onpopupshown="TabFlick.generatePanel(event);"
+		       onpopuphiding="TabFlick.destroyPanel(event);"
+		       onmouseover="TabFlick.onPanelMouseOver(event);"
+		       onmouseout="TabFlick.onPanelMouseOut(event);"
+		       onclick="TabFlick.onPanelClick(event);">
+			<label id="tabFlickPanelLabel" flex="1" crop="end" />
+			<hbox id="tabFlickPreviewContainer" align="center" />
+			<hbox pack="center">
+				<button id="tabFlickPanelButton"
+				        oncommand="TabFlick.onButtonCommand(event);" />
+			</hbox>
+		</panel>
+		<menuitem id="context_moveTabToWindow"
+		          label="&tabflick.menuitem.label;"
+		          accesskey="&tabflick.menuitem.accesskey;"
+		          oncommand="TabFlick.openPanel(event);"
+		          hidden="true" />
+		<!-- [MultipleTabHandler] -->
+		<menupopup id="multipletab-selection-menu">
+			<menuitem id="multipletab-selection-moveTabsToWindow"
+			          label="&tabflick.menuitem.label;"
+			          insertafter="multipletab-selection-splitWindow"
+			          oncommand="TabFlick.openPanel(event);" />
+		</menupopup>
+	</popupset>
+
+</overlay>

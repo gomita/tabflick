@@ -1,0 +1,41 @@
+.tabflick-preview {
+	-moz-binding: url("chrome://tabflick/content/tabflick.xml#tabflick-preview");
+}
+
+#tabFlickPanel .tabflick-preview {
+	margin: 5px;
+	border: 5px solid transparent;
+}
+
+#tabFlickPanel .tabflick-preview:hover {
+	border: 5px solid skyblue;
+}
+
+#tabFlickPanel .tabflick-preview[_currentwindow="true"] {
+	border: 5px solid lightpink !important;
+}
+
+#tabFlickPanelLabel {
+	text-align: center;
+	margin: 5px;
+}
+
+#tabFlickPanelButton[disabled="true"] {
+	opacity: 0.3;
+}
+
+/* for compatibility with Firefox 3.5 */
+.tabPreview-canvas {
+	-moz-box-shadow: 1px 1px 3px rgb(12%,12%,12%);
+}
+
+/* derived from chrome://browser/skin/browser.css for Windows Aero */
+#tabFlickPanel:-moz-system-metric(windows-compositor) {
+	background: transparent;
+	-moz-appearance: -moz-win-glass;
+	-moz-border-radius: 0;
+	border: none;
+	color: black;
+	text-shadow: white -1px -1px .5em, white -1px 1px .5em, white 1px 1px .5em, white 1px -1px .5em;
+}
+

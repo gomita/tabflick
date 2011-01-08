@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://tabflick/locale/options.dtd">
+
+<prefwindow id="tabflickOptions"
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            title="Tab Flick - &tabflick.options;">
+
+	<prefpane id="generalPane" flex="1">
+		<preferences>
+			<preference id="extensions.tabflick.preview.scale" name="extensions.tabflick.preview.scale" type="int" />
+			<preference id="extensions.tabflick.preview.interval" name="extensions.tabflick.preview.interval" type="int" />
+			<preference id="extensions.tabflick.selectAfterMove" name="extensions.tabflick.selectAfterMove" type="bool" />
+		</preferences>
+		<hbox align="center">
+			<label value="&tabflick.preview.scale;:" />
+			<textbox preference="extensions.tabflick.preview.scale"
+			         type="number" min="10" max="50" increment="5" size="3" />
+			<label value="%" />
+		</hbox>
+		<hbox align="center">
+			<label value="&tabflick.preview.interval.1;" />
+			<textbox preference="extensions.tabflick.preview.interval"
+			         type="number" min="0" increment="100" size="5" />
+			<label value="&tabflick.preview.interval.2;" />
+		</hbox>
+		<checkbox label="&tabflick.selectAfterMove;" preference="extensions.tabflick.selectAfterMove" />
+		<description class="indent" flex="1">&tabflick.selectAfterMove.description;</description>
+	</prefpane>
+
+</prefwindow>

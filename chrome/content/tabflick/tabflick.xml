@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+
+<bindings id="tabflickBindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<binding id="tabflick-preview">
+
+		<content>
+			<xul:hbox class="tabPreview-canvas">
+				<html:canvas anonid="tabflick-canvas" />
+			</xul:hbox>
+		</content>
+
+		<implementation implements="nsITimerCallback">
+
+			<field name="_window">null</field>
+
+			<field name="_timer">null</field>
+
+			<method name="log">
+				<parameter name="aMsg" />
+				<body><![CDATA[
+				Application.console.log("tabflick@" + new Date().toLocaleTimeString() + "> " + aMsg);
+				]]></body>
+			</method>
+
+			<method name="getElement">
+				<parameter name="aAnonymousID" />
+				<body><![CDATA[
+				return document.getAnonymousElementByAttribute(this, "anonid", aAnonymousID)
+				]]></body>
+			</method>
+
+			<method name="init">
+				<parameter name="aWindow" />
+				<body><![CDATA[
+				this._window = aWindow;
+				this._update();
+				var interval = Math.max(10, TabFlick.prefBranch.getIntPref("preview.interval"));
+				if (interval > 0) {
+					this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+					this._timer.initWithCallback(this, interval, Ci.nsITimer.TYPE_REPEATING_SLACK);
+				}
+				]]></body>
+			</method>
+
+			<method name="uninit">
+				<body><![CDATA[
+				this._window = null;
+				if (this._timer) {
+					this._timer.cancel();
+					this._timer = null;
+				}
+				var ctx;
+				var canvas = this.getElement("tabflick-canvas");
+				ctx = canvas.getContext("2d");
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				]]></body>
+			</method>
+
+			<method name="_update">
+				<body><![CDATA[
+				var canvas = this.getElement("tabflick-canvas");
+				var scale = TabFlick.prefBranch.getIntPref("preview.scale") / 100;
+				var win, w, h;
+				// draw preview of browser window
+				win = this._window;
+				w = win.innerWidth;
+				h = win.innerHeight;
+				canvas.width  = Math.round(w * scale);
+				canvas.height = Math.round(h * scale);
+				var ctx = canvas.getContext("2d");
+				ctx.save();
+				ctx.scale(scale, scale);
+				ctx.drawWindow(win, 0, 0, w, h, "rgb(255,255,255)");
+				// draw preview of content
+				var rect = win.gBrowser.mCurrentBrowser.getBoundingClientRect();
+				ctx.translate(rect.left, rect.top);
+				win = this._window.content;
+				w = win.innerWidth  || win.document.documentElement.clientWidth;
+				h = win.innerHeight || win.document.documentElement.clientHeight;
+				ctx.drawWindow(win, win.scrollX, win.scrollY, w, h, "rgb(255,255,255)");
+				ctx.restore();
+				]]></body>
+			</method>
+
+			<constructor><![CDATA[
+			]]></constructor>
+
+			<destructor><![CDATA[
+			]]></destructor>
+
+			<!-- nsITimerCallback -->
+			<method name="notify">
+				<parameter name="aTimer" />
+				<body><![CDATA[
+				this._update();
+				]]></body>
+			</method>
+
+		</implementation>
+
+	</binding>
+
+</bindings>

@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "設定">
+<!ENTITY tabflick.preview.scale "プレビューの縮小率">
+<!ENTITY tabflick.preview.interval.1 "プレビューの再描画を">
+<!ENTITY tabflick.preview.interval.2 "ミリ秒おきにする">
+<!ENTITY tabflick.selectAfterMove "タブを別のウィンドウへ移動したとき、すぐにそのタブに切り替える">
+<!ENTITY tabflick.selectAfterMove.description "Shift キー押下によって逆の動作となります。">
