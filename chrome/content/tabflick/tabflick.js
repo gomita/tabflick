@@ -279,3 +279,7 @@ var TabFlick = {
 };
 
 
+window.addEventListener("load", function() { TabFlick.init(); }, false);
+window.addEventListener("unload", function() { TabFlick.uninit(); }, false);
+
+
