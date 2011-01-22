@@ -8,13 +8,13 @@
 		<em:type>2</em:type>
 		<em:name>Tab Flick</em:name>
 		<em:version>0.3.6</em:version>
-		<em:description>Move a tab into another window.</em:description>
+		<em:description>Move a tab into another window by drag-and-drop.</em:description>
 		<em:creator>Gomita</em:creator>
 		<em:localized>
 			<Description>
 				<em:locale>ja</em:locale>
 				<em:name>Tab Flick</em:name>
-				<em:description>タブを別のウィンドウへ移動します。</em:description>
+				<em:description>タブをドラッグ＆ドロップして別のウィンドウへ移動します。</em:description>
 				<em:creator>ごみた</em:creator>
 				<em:homepageURL>http://www.xuldev.org/tabflick/</em:homepageURL>
 			</Description>
