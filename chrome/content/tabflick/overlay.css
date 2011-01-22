@@ -29,6 +29,8 @@
 	-moz-box-shadow: 1px 1px 3px rgb(12%,12%,12%);
 }
 
+/* ::::: Windows Aero ::::: */
+
 /* derived from chrome://browser/skin/browser.css for Windows Aero */
 #tabFlickPanel:-moz-system-metric(windows-compositor) {
 	background: transparent;
@@ -37,5 +39,11 @@
 	border: none;
 	color: black;
 	text-shadow: white -1px -1px .5em, white -1px 1px .5em, white 1px 1px .5em, white 1px -1px .5em;
+}
+
+/* ::::: Windows (except Classic and third-party themes) ::::: */
+
+#tabFlickPanel:-moz-system-metric(windows-default-theme) {
+	border: 1px solid ThreeDShadow;
 }
 
