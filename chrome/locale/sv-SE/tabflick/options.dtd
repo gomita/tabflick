@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Inställningar">
+<!ENTITY tabflick.preview.scale "Förhandsgranskningsskala">
+<!ENTITY tabflick.preview.interval.1 "Uppdatera förhandsgranskningen var">
+<!ENTITY tabflick.preview.interval.2 "ms">
+<!ENTITY tabflick.selectAfterMove "När jag flyttar en flik till ett annat fönster, byt genast till den">
+<!ENTITY tabflick.selectAfterMove.description "Att hålla Skift-tangenten nedtryckt inverterar åtgärden.">
