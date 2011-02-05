@@ -3,4 +3,5 @@ overlay	chrome://browser/content/browser.xul	chrome://tabflick/content/overlay.x
 content	tabflick	chrome/content/tabflick/
 locale	tabflick	en-US	chrome/locale/en-US/tabflick/
 locale	tabflick	ja	chrome/locale/ja/tabflick/
+locale	tabflick	ru-RU	chrome/locale/ru-RU/tabflick/
 locale	tabflick	sv-SE	chrome/locale/sv-SE/tabflick/

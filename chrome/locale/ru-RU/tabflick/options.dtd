@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Настройки">
+<!ENTITY tabflick.preview.scale "Масштаб миниатюр">
+<!ENTITY tabflick.preview.interval.1 "Обновлять миниатюру каждые">
+<!ENTITY tabflick.preview.interval.2 "миллисекунд">
+<!ENTITY tabflick.selectAfterMove "При перемещении вкладки в другое окно, немедленно переключаться на неё">
+<!ENTITY tabflick.selectAfterMove.description "Нажатие клавиши Shift инвертирует действие.">
