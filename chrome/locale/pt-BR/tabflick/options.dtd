@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Opções">
+<!ENTITY tabflick.preview.scale "Escala da visualização">
+<!ENTITY tabflick.preview.interval.1 "Atualizar visualização a cada">
+<!ENTITY tabflick.preview.interval.2 "milisegundos">
+<!ENTITY tabflick.selectAfterMove "Ao mover uma aba para outra janela, trocar para ela imediatamente">
+<!ENTITY tabflick.selectAfterMove.description "Pressionando a tecla Shift inverte a ação.">
