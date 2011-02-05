@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Opcje">
+<!ENTITY tabflick.preview.scale "Skala podglądu">
+<!ENTITY tabflick.preview.interval.1 "Odświeżaj podgląd co">
+<!ENTITY tabflick.preview.interval.2 "ms">
+<!ENTITY tabflick.selectAfterMove "Po przeniesieniu karty do innego okna, uaktywniaj ją niezwłocznie">
+<!ENTITY tabflick.selectAfterMove.description "Naciśnięcie klawisza Shift odwraca działanie.">
