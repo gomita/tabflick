@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Einstellungen">
+<!ENTITY tabflick.preview.scale "Größenverhältnis der Vorschau">
+<!ENTITY tabflick.preview.interval.1 "Vorschau aktualisieren alle">
+<!ENTITY tabflick.preview.interval.2 "Millisekunden">
+<!ENTITY tabflick.selectAfterMove "Beim Verschieben eines Tabs in ein anderes Fenster dieses in den Vordergrund holen">
+<!ENTITY tabflick.selectAfterMove.description "Drücken der Umschalttaste bei der Fensterauswahl belässt es im Hintergrund">
