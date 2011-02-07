@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "选项">
+<!ENTITY tabflick.preview.scale "预览大小">
+<!ENTITY tabflick.preview.interval.1 "刷新预览间隔">
+<!ENTITY tabflick.preview.interval.2 "毫秒">
+<!ENTITY tabflick.selectAfterMove "当我移动标签页到另一个窗口时，立即切换到它">
+<!ENTITY tabflick.selectAfterMove.description "按下 Shift 键反转动作。">
