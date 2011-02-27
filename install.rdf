@@ -31,6 +31,16 @@
 		</em:localized>
 		<em:localized>
 			<Description>
+				<em:locale>fr</em:locale>
+				<em:name>Tab Flick</em:name>
+				<em:description>Move a tab into another window by drag-and-drop.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>matthieum</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabflick/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
 				<em:locale>pl</em:locale>
 				<em:name>Tab Flick</em:name>
 				<em:description>Move a tab into another window by drag-and-drop.</em:description>

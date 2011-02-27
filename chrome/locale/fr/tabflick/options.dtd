@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Options">
+<!ENTITY tabflick.preview.scale "Aperçu de l'échelle">
+<!ENTITY tabflick.preview.interval.1 "Rafraîchir l'aperçu toute les">
+<!ENTITY tabflick.preview.interval.2 "millisecondes">
+<!ENTITY tabflick.selectAfterMove "Lorsque je déplace un onglet dans une autre fenêtre, basculer vers celui-ci immédiatement">
+<!ENTITY tabflick.selectAfterMove.description "Appuyez sur la touche Majuscule pour annuler la dernière action.">
