@@ -7,7 +7,7 @@
 		<em:id>tabflick@xuldev.org</em:id>
 		<em:type>2</em:type>
 		<em:name>Tab Flick</em:name>
-		<em:version>0.3.8</em:version>
+		<em:version>0.3.9</em:version>
 		<em:description>Move a tab into another window by drag-and-drop.</em:description>
 		<em:creator>Gomita</em:creator>
 		<em:localized>
