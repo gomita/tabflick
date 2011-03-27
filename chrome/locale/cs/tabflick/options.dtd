@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Možnosti">
+<!ENTITY tabflick.preview.scale "Měřítko náhledu">
+<!ENTITY tabflick.preview.interval.1 "Aktualizovat náhled každých">
+<!ENTITY tabflick.preview.interval.2 "milisekund">
+<!ENTITY tabflick.selectAfterMove "Po přesunutí panelu ihned přepnout zobrazení na nové okno">
+<!ENTITY tabflick.selectAfterMove.description "(podržení klávesy Shift zabrání této akci)">
