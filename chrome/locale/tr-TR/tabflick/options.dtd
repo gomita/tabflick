@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Seçenekler">
+<!ENTITY tabflick.preview.scale "Önizleme ölçeği">
+<!ENTITY tabflick.preview.interval.1 "Önizlemeyi yenile">
+<!ENTITY tabflick.preview.interval.2 "milisaniye">
+<!ENTITY tabflick.selectAfterMove "Başka bir penceredeki sekmeyi taşıdığımda hemen geçiş yap">
+<!ENTITY tabflick.selectAfterMove.description "Shift tuşuna basıldığında hareketi tersine çevirir.">
