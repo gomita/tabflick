@@ -5,6 +5,7 @@ locale	tabflick	en-US	chrome/locale/en-US/tabflick/
 locale	tabflick	ja	chrome/locale/ja/tabflick/
 locale	tabflick	cs	chrome/locale/cs/tabflick/
 locale	tabflick	de	chrome/locale/de/tabflick/
+locale	tabflick	el	chrome/locale/el/tabflick/
 locale	tabflick	fr	chrome/locale/fr/tabflick/
 locale	tabflick	pl	chrome/locale/pl/tabflick/
 locale	tabflick	pt-BR	chrome/locale/pt-BR/tabflick/

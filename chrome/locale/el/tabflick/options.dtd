@@ -1,0 +1,6 @@
+<!ENTITY tabflick.options "Επιλογές">
+<!ENTITY tabflick.preview.scale "Κλίμακα προεπισκόπησης">
+<!ENTITY tabflick.preview.interval.1 "Ανανέωση προεπισκόπησης κάθε">
+<!ENTITY tabflick.preview.interval.2 "μιλιδευτερόλεπτα">
+<!ENTITY tabflick.selectAfterMove "Κατά τη μετακίνηση μιάς καρτέλας σε άλλο παράθυρο, άμεση μετάβαση σε αυτήν">
+<!ENTITY tabflick.selectAfterMove.description "Πατώντας το πλήκτρο Shift η ενέργεια αντιστρέφεται.">
