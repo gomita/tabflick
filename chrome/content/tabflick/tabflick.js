@@ -18,13 +18,15 @@ var TabFlick = {
 		this.panel = document.getElementById("tabFlickPanel");
 		gBrowser.mTabContainer.addEventListener("dragend", TabFlick._onDragEnd, true);
 		if ("TabDNDObserver" in window) {
-			// [TabMixPlus] Tab Mix Plus calls own |TabDNDObserver| instead of |gBrowser._onDragEnd|
-			// note that |this| points to TabDNDObserver object in |TabDNDObserver.onDragEnd|
+			// [TabMixPlus] inject TabFlick codes just before gBrowser.replaceTabWithWindow and void it
+			var func = TabDNDObserver.onDragEnd.toSource();
 			var funcBak = func;	// #debug
-			func = TabDNDObserver.onDragEnd.toSource();
 			func = func.replace(
-				"gBrowser.replaceTabWithWindow(draggedTab);",
-				"gBrowser.mContextTab = draggedTab; TabFlick.openPanel(aEvent);"
+				"gBrowser.replaceTabWithWindow(",
+				"gBrowser.mContextTab = draggedTab; TabFlick.openPanel(aEvent); void("
+			).replace(
+				"window.moveTo(left, top);",
+				""
 			);
 			this.assert(func != funcBak);	// #debug
 			eval("TabDNDObserver.onDragEnd = " + func);
