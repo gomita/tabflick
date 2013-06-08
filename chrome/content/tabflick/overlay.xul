@@ -12,7 +12,7 @@
 
 	<popupset id="mainPopupSet">
 		<panel id="tabFlickPanel"
-		       onpopupshown="TabFlick.generatePanel(event);"
+		       onpopupshowing="TabFlick.generatePanel(event);"
 		       onpopuphiding="TabFlick.destroyPanel(event);"
 		       onmouseover="TabFlick.onPanelMouseOver(event);"
 		       onmouseout="TabFlick.onPanelMouseOut(event);"

@@ -3,6 +3,8 @@
 
 var TabFlick = {
 
+	_mac: false,
+
 	panel: null,
 
 	prefBranch: null,
@@ -11,6 +13,7 @@ var TabFlick = {
 	_selectedTabs: null,
 
 	init: function() {
+		this._mac = navigator.platform.startsWith("Mac");
 		this.prefBranch = Services.prefs.getBranch("extensions.tabflick.");
 		this.panel = document.getElementById("tabFlickPanel");
 		gBrowser.mTabContainer.addEventListener("dragend", TabFlick._onDragEnd, true);
@@ -105,13 +108,6 @@ var TabFlick = {
 	},
 
 	openPanel: function(event) {
-		document.popupNode = null;
-		if (event.screenX === undefined)
-			// selecting menuitem opens popup after the menuitem
-			this.panel.openPopup(event.target, "after_start", 0, 0, false, false);
-		else
-			// dropping browser tab opens popup at pointer
-			this.panel.openPopupAtScreen(event.screenX, event.screenY, false);
 		// [MultipleTabHandler] NOTE: dragging tabs to select -> open popup automatically -> 
 		// select 'Move to Another Window...' menu, then tab selection are cleared and 
 		// we cannot get selected tabs when Tab Flick popup will opens.
@@ -119,6 +115,21 @@ var TabFlick = {
 			this._selectedTabs = MultipleTabService.getSelectedTabs();
 		else
 			this._selectedTabs = [gBrowser.mContextTab];
+		document.popupNode = null;
+		if (event.screenX === undefined) {
+			// selecting menuitem opens popup after the menuitem
+			this.panel.openPopup(event.target, "after_start", 0, 0, false, false);
+		}
+		else {
+			var ratio = 1;
+			if (!this._mac) {
+				// [Windows][Linux] get the value of |layout.css.devPixelsPerPx|
+				ratio = window.QueryInterface(Ci.nsIInterfaceRequestor).
+			            getInterface(Ci.nsIDOMWindowUtils).screenPixelsPerCSSPixel;
+			}
+			// dropping browser tab opens popup at pointer
+			this.panel.openPopupAtScreen(event.screenX / ratio, event.screenY / ratio, false);
+		}
 	},
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -151,6 +162,9 @@ var TabFlick = {
 			preview.uninit();
 			container.removeChild(preview);
 		}
+		// reset panel size
+		this.panel.removeAttribute("width");
+		this.panel.removeAttribute("height");
 		// reset label width
 		var label = document.getElementById("tabFlickPanelLabel");
 		label.style.width = "1px";
