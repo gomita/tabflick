@@ -11,9 +11,7 @@ var TabFlick = {
 	_selectedTabs: null,
 
 	init: function() {
-		this.prefBranch = Cc["@mozilla.org/preferences-service;1"].
-		                  getService(Ci.nsIPrefService).
-		                  getBranch("extensions.tabflick.");
+		this.prefBranch = Services.prefs.getBranch("extensions.tabflick.");
 		this.panel = document.getElementById("tabFlickPanel");
 		gBrowser.mTabContainer.addEventListener("dragend", TabFlick._onDragEnd, true);
 		if ("TabDNDObserver" in window) {
@@ -128,14 +126,14 @@ var TabFlick = {
 
 	generatePanel: function(event) {
 		var container = document.getElementById("tabFlickPreviewContainer");
-		this._getAllWindows().forEach(function(win) {
+		for (let win of this._getAllWindows()) {
 			var preview = document.createElement("hbox");
-			preview.setAttribute("class", "tabflick-preview");
+			preview.className = "tabflick-preview";
 			if (win == window)
 				preview.setAttribute("_currentwindow", "true");
 			container.appendChild(preview);
 			preview.init(win);
-		});
+		}
 		var label = document.getElementById("tabFlickPanelLabel");
 		label.style.width = (container.boxObject.width - 20).toString() + "px";
 		label.value = document.documentElement.getAttribute("title");
@@ -202,9 +200,7 @@ var TabFlick = {
 
 	_getAllWindows: function() {
 		var ret = [];
-		var winEnum = Cc["@mozilla.org/appshell/window-mediator;1"].
-		              getService(Ci.nsIWindowMediator).
-		              getEnumerator("navigator:browser");
+		var winEnum = Services.wm.getEnumerator("navigator:browser");
 		while (winEnum.hasMoreElements()) {
 			var win = winEnum.getNext();
 			ret.push(win);
@@ -213,9 +209,7 @@ var TabFlick = {
 	},
 
 	_getWindowBySSi: function(aSSi) {
-		var winEnum = Cc["@mozilla.org/appshell/window-mediator;1"].
-		              getService(Ci.nsIWindowMediator).
-		              getEnumerator("navigator:browser");
+		var winEnum = Services.wm.getEnumerator("navigator:browser");
 		while (winEnum.hasMoreElements()) {
 			var win = winEnum.getNext();
 			if (win.__SSi == aSSi)
