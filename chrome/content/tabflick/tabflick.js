@@ -81,6 +81,7 @@ var TabFlick = {
 		// Note: while this case is correctly handled here, this event
 		// isn't dispatched when the tab is moved within the tabstrip,
 		// see bug 460801.
+		gBrowser.mTabContainer._finishAnimateTabMove();
 		// * mozUserCancelled = the user pressed ESC to cancel the drag
 		var dt = event.dataTransfer;
 		if (dt.mozUserCancelled || dt.dropEffect != "none")
