@@ -12,7 +12,6 @@
 
 	<popupset id="mainPopupSet">
 		<panel id="tabFlickPanel"
-		       collapsed="true"
 		       onpopupshown="TabFlick.generatePanel(event);"
 		       onpopuphiding="TabFlick.destroyPanel(event);"
 		       onmouseover="TabFlick.onPanelMouseOver(event);"

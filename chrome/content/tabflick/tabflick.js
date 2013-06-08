@@ -107,8 +107,6 @@ var TabFlick = {
 
 	openPanel: function(event) {
 		document.popupNode = null;
-		// [WindowsXP] fixed bug: open popup strangely
-		this.panel.hidden = false;
 		if (event.screenX === undefined)
 			// selecting menuitem opens popup after the menuitem
 			this.panel.openPopup(event.target, "after_start", 0, 0, false, false);
@@ -137,7 +135,6 @@ var TabFlick = {
 			container.appendChild(preview);
 			preview.init(win);
 		});
-		this.panel.collapsed = false;
 		var label = document.getElementById("tabFlickPanelLabel");
 		label.style.width = (container.boxObject.width - 20).toString() + "px";
 		label.value = document.documentElement.getAttribute("title");
@@ -158,9 +155,6 @@ var TabFlick = {
 		// reset label width
 		var label = document.getElementById("tabFlickPanelLabel");
 		label.style.width = "1px";
-		this.panel.collapsed = true;
-		// [WindowsXP] fixed bug: open popup strangely
-		this.panel.hidden = true;
 		this._selectedTabs = null;
 	},
 
