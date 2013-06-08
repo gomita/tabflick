@@ -64,8 +64,8 @@ var TabFlick = {
 		var funcBak = func;	// #debug
 		// don't stop propagation when selecting all tabs and dropping them
 		func = func.replace(
-			"if (this.isDraggingAllTabs(draggedTab)) {aEvent.stopPropagation();}", 
-			""
+			"if (this.isDraggingAllTabs(draggedTab))", 
+			"if (false)"
 		);
 		TabFlick.assert(func != funcBak);	// #debug
 		eval("MultipleTabService.onTabbarDragEnd = " + func);
