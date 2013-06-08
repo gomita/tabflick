@@ -15,23 +15,7 @@ var TabFlick = {
 		                  getService(Ci.nsIPrefService).
 		                  getBranch("extensions.tabflick.");
 		this.panel = document.getElementById("tabFlickPanel");
-		if ("_onDragEnd" in gBrowser) {
-			// [Firefox3.6]
-			// injects to gBrowser._onDragEnd in order to set gBrowser.mContextTab for the later process
-			// and call TabFlick.openPanel instead of gBrowser.replaceTabWithWindow.
-			var func = gBrowser._onDragEnd.toSource();
-			var funcBak = func;	// #debug
-			func = func.replace(
-				"this.replaceTabWithWindow(draggedTab);", 
-				"this.mContextTab = draggedTab; TabFlick.openPanel(aEvent);"
-			);
-			this.assert(func != funcBak);	// #debug
-			eval("gBrowser._onDragEnd = " + func);
-		}
-		else {
-			// [Firefox4]
-			gBrowser.mTabContainer.addEventListener("dragend", TabFlick._onDragEnd, true);
-		}
+		gBrowser.mTabContainer.addEventListener("dragend", TabFlick._onDragEnd, true);
 		if ("TabDNDObserver" in window) {
 			// [TabMixPlus] Tab Mix Plus calls own |TabDNDObserver| instead of |gBrowser._onDragEnd|
 			// note that |this| points to TabDNDObserver object in |TabDNDObserver.onDragEnd|
@@ -52,15 +36,12 @@ var TabFlick = {
 		// adds menuitem to tab context menu
 		var menuItem = document.getElementById("context_moveTabToWindow");
 		menuItem.hidden = false;
-		// [Firefox3.6][Firefox4] get tab strip context menu
-		var contextMenu = gBrowser.mStrip.getElementsByAttribute("anonid", "tabContextMenu")[0] || 
-		                  gBrowser.mTabContainer.contextMenu;
 		var refItem = document.getElementById("context_openTabInWindow");
 		if (refItem)
-			contextMenu.insertBefore(menuItem, refItem.nextSibling);
+			gBrowser.mTabContainer.contextMenu.insertBefore(menuItem, refItem.nextSibling);
 		else
 			// [TabMixPlus]
-			contextMenu.appendChild(menuItem);
+			gBrowser.mTabContainer.contextMenu.appendChild(menuItem);
 		// [MultipleTabHandler]
 		if ("MultipleTabService" in window)
 			window.setTimeout(this._delayedInit, 0);
@@ -90,15 +71,12 @@ var TabFlick = {
 	},
 
 	uninit: function() {
-		if ("_onDragEnd" in gBrowser == false) {
-			// [Firefox4]
-			gBrowser.mTabContainer.removeEventListener("dragend", TabFlick._onDragEnd, true);
-		}
+		gBrowser.mTabContainer.removeEventListener("dragend", TabFlick._onDragEnd, true);
 		this.prefBranch = null;
 		this.panel = null;
 	},
 
-	// [Firefox4] the following code is derived from "dragend" handler in tabbrowser.xml
+	// the following code is derived from "dragend" handler in tabbrowser.xml
 	_onDragEnd: function(event) {
 		// Note: while this case is correctly handled here, this event
 		// isn't dispatched when the tab is moved within the tabstrip,
